@@ -4,29 +4,29 @@ pipeline{
        maven 'Maven'
        }
        Stages{
-           stage("Checkout"){
+           Stage("Checkout"){
            steps{
                git origin:"main",url"https://github.com/bitcsedevops4-art/selenium1.git"
                }
               }
-            stage("build"){
+            Stage("build"){
             steps{
              sh"mvn clean install"
              }
             }
-            stage("test"){
+            Stage("test"){
             steps{
              sh"mvn test"
              }
             }
-            stage("Run application"){
+            Stage("Run application"){
             steps{
               sh"java -jar target/selenium-1.0-SNAPSHOT.jar"
               }
             }
            }
           post{
-               sucess{
+               success{
                  echo "Build Sucess"
                  }
                failure{
