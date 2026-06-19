@@ -5,22 +5,22 @@ Pipeline{
        }
        Stages{
            Stage("Checkout"){
-           steps{
+           Steps{
                git origin:"main",url"https://github.com/bitcsedevops4-art/selenium1.git"
                }
               }
             Stage("build"){
-            steps{
+            Steps{
              sh"mvn clean install"
              }
             }
             Stage("test"){
-            steps{
+            Steps{
              sh"mvn test"
              }
             }
             Stage("Run application"){
-            steps{
+            Steps{
               sh"java -jar target/selenium-1.0-SNAPSHOT.jar"
               }
             }
